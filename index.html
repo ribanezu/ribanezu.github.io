@@ -1,20 +1,12 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <title>Visor GIS</title>
-    <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v6.3.1/css/ol.css" type="text/css">
-    <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v6.3.1/build/ol.js"></script>
-    <style>
-      #map {
-        width: 600px;
-        height: 400px;
-      }
-    </style>
+    <title>Visor GIS con OpenLayers</title>
+    <link rel="stylesheet" href="https://openlayers.org/en/v4.6.5/css/ol.css" type="text/css">
+    <script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
   </head>
   <body>
-    <div id="map"></div>
+    <div id="map" style="width: 100%; height: 400px;"></div>
     <script>
-      // Crea un mapa y agrega una capa de mapa base al mapa
       var map = new ol.Map({
         target: 'map',
         layers: [
@@ -23,26 +15,9 @@
           })
         ],
         view: new ol.View({
-          center: ol.proj.fromLonLat([-0.09, 51.505]),
-          zoom: 13
+          center: ol.proj.fromLonLat([-74.0, 40.7]),
+          zoom: 12
         })
-      });
-
-      // Crea una capa SHP a partir de un archivo SHP y agrégala al mapa
-      var shpLayer = new ol.layer.Vector({
-        source: new ol.source.Vector({
-          url: 'BARRIOS.shp',
-          format: new ol.format.Shapefile()
-        })
-      });
-      map.addLayer(shpLayer);
-
-      // Obtener todos los objetos ol.Feature de la capa SHP
-      var features = shpLayer.getSource().getFeatures();
-
-      // Calcular la intersección entre los objetos ol.Feature de la capa SHP y otra capa
-      var intersectingFeatures = features.filter(function(feature) {
-        return otraCapa.getSource().getFeaturesAtCoordinate(feature.getGeometry().getCoordinates()).length > 0;
       });
     </script>
   </body>
