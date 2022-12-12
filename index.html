@@ -31,7 +31,7 @@
       var barrios = new ol.layer.Vector({
         source: new ol.source.Vector({
           url: 'BARRIOS.shp',
-          format: new ol.format.Shapefile()
+          format: new ol.format.GeoJson()
         }),
         style: new ol.style.Style({
           fill: new ol.style.Fill({
