@@ -25,27 +25,5 @@
       });
     </script>
 
-    <!-- Capa de barrios -->
-    <script>
-      // Cargar archivo Shapefile
-      var barrios = new ol.layer.Vector({
-        source: new ol.source.Vector({
-          url: 'barrios.geojson',
-          format: new ol.format.GeoJSON()
-        }),
-        style: new ol.style.Style({
-          fill: new ol.style.Fill({
-            color: 'rgba(255, 255, 255, 0.5)'
-          }),
-          stroke: new ol.style.Stroke({
-            color: '#319FD3',
-            width: 1
-          })
-        })
-      });
-
-      // Añadir capa de barrios al mapa
-      map.addLayer(barrios);
-    </script>
   </body>
 </html>
